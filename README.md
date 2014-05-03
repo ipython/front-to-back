@@ -1,4 +1,4 @@
-Talk on IPython frontends and backends for `PyData SV 2014 <http://pydata.org/sv2014/>`_.
+Talk on IPython frontends and backends for [PyData SV 2014](http://pydata.org/sv2014/)
 
 Paul Ivanov was responsible for the [Protocol and Frontend portion of the
 talk](http://nbviewer.ipython.org/github/ipython/front-to-back/blob/master/Frontends.ipynb).
