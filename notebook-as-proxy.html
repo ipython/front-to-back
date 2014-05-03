@@ -1,0 +1,54 @@
+<html lang="en">
+<head>
+<script src="raphael-min.js"></script>
+<script src="underscore-min.js"></script>
+<script src="sequence-diagram-min.js"></script>
+</head>
+<body>
+
+
+<h1>Notebook Server as a Proxy &#x25c6;&#x25c6;</h1>
+<div id="diagram">
+    
+</div>
+
+<pre id='txt'>
+title: User browses to localhost:8888/notebooks/example.ipynb
+participant js
+participant nbs
+participant kernel
+nbs-->js: ICCP over \nwebsockets
+js-->nbs:
+nbs-->kernel: ICCP over \nZeroMQ
+kernel-->nbs: 
+nbs->js: sends example.ipynb\n    (JSON file)
+nbs->kernel: starts up the kernel
+note over js: parses JSON structure\ncreates JS representation
+note left of js: User types "x=1"\nin a cell\nand executes it
+js->nbs: Execute "x=42"
+js-js: In[*]
+nbs->kernel: Execute "x=42"
+kernel-kernel: x=42
+kernel->nbs: OK, execution count=1
+nbs->js: OK, execution count=1
+js-js: In[1]
+</pre>
+
+note over kernel: x=42
+<script>
+  var diagram = Diagram.parse(document.getElementById('txt').innerText);
+    diagram.drawSVG("diagram", {theme: 'hand'});
+
+    document.getElementById('txt').innerText = '';
+</script>
+<!-- 
+or use jQuery to do all the work:
+<div class="diagram">A->B: Message</div>
+<script>
+$(".diagram").sequenceDiagram({theme: 'hand'});
+
+--> 
+
+</script>
+</body>
+</html>
