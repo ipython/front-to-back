@@ -30,5 +30,6 @@ the messaging protocol, before demonstrating some of our alternative frontends,
 including vim-ipython and bipython. We'll show kernels that people have written
 in other languages, such as Julia and R, and preview the upcoming features that
 will expose these alternative kernels in the Notebook user interface. This talk
-is proposed jointly by Paul Ivanov and myself, both core IPython developers.
+is proposed jointly by Paul Ivanov and Thomas Kluyver, both core IPython
+developers.
 
